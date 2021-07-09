@@ -1,5 +1,6 @@
 package com.creathus.selecao.form;
 
+import javax.persistence.Lob;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -26,10 +27,15 @@ public class PessoaForms {
 	@Email(message = "Insira Email valido!")
 	private String email;
 
-	private String foto;
-
 	private String escolaridade;
-
+	
+	private String nome_arquivo;
+	
+	private String tipo_arquivo;
+	
+	@Lob
+	private byte[] data;
+	
 
 	public String getNome() {
 		return nome;
@@ -55,14 +61,6 @@ public class PessoaForms {
 		this.email = email;
 	}
 
-	public String getFoto() {
-		return foto;
-	}
-
-	public void setFoto(String foto) {
-		this.foto = foto;
-	}
-
 	public String getEscolaridade() {
 		return escolaridade;
 	}
@@ -71,8 +69,32 @@ public class PessoaForms {
 		this.escolaridade = escolaridade;
 	}
 
+	public String getNome_arquivo() {
+		return nome_arquivo;
+	}
+
+	public void setNome_arquivo(String nome_arquivo) {
+		this.nome_arquivo = nome_arquivo;
+	}
+
+	public String getTipo_arquivo() {
+		return tipo_arquivo;
+	}
+
+	public void setTipo_arquivo(String tipo_arquivo) {
+		this.tipo_arquivo = tipo_arquivo;
+	}
+
+	public byte[] getData() {
+		return data;
+	}
+
+	public void setData(byte[] data) {
+		this.data = data;
+	}
+
 	public Formulario converter() {
-		return new Formulario(nome, idade, email, foto, escolaridade);
+		return new Formulario(nome, idade, email, escolaridade, nome_arquivo, tipo_arquivo, data);
 	}
 
 }
