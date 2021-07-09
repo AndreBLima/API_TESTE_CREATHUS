@@ -1,5 +1,6 @@
 package com.creathus.selecao.form;
 
+import javax.persistence.Lob;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -20,14 +21,16 @@ public class PessoaForms {
 
 	@Min(value = 0L, message = "Idade tem que conterapensa valores positivos")
 	@Max(value = 100, message = "Idade nao pode ser maior que 100")
-	@NotNull(message="Idade nao pode ser Nulo!")
+	@NotNull(message="Campo Idade nao pode ser vazio!")
 	private Integer idade;
 
 	@Email(message = "Insira Email valido!")
 	private String email;
-
+	
+	@Lob
 	private String foto;
-
+	
+	@NotBlank(message = "Campo Escolaridade nao pode ser vazio!")
 	private String escolaridade;
 
 
